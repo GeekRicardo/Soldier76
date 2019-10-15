@@ -14,13 +14,13 @@ userInfo = {
 	-- 灵敏度调整
 	sensitivity = {
 		-- 开镜
-		ADS = 100,
+		ADS = 55,
 		-- 腰射
-		Aim = 0.55,
+		Aim = 1,
 		-- 二倍
-		scopeX2 = 1.3,
+		scopeX2 = 2.7,
 		-- 三倍
-		scopeX3 = 1.3,
+		scopeX3 = 3.0,
 		-- 四倍
 		scopeX4 = 3.9,
 		-- 六倍
@@ -31,7 +31,7 @@ userInfo = {
 	autoPressAimKey = "",
 
 	-- 是否自动连发 (单发模式变全自动 1 - 开启， 0 - 关闭)
-	autoContinuousFiring = 1, -- 默认为 1
+	autoContinuousFiring = 0, -- 默认为 1
 
 	-- 启动控制 (capslock - 使用大写锁定键控制 | numlock - 小键盘锁定键控制 | G_bind - 使用指令控制)
 	startControl = "capslock",
@@ -54,12 +54,12 @@ userInfo = {
 	-- 支持的枪械，排列顺序即是配置顺序，可以自行调整，不需要的枪械请设置为0，需要的设置为1。
 	canUse = {
 		[".45"] = {
-			{ "UMP45", 1 }, -- 基础镜 + 扩容，Bizon (基础镜即可)，Vector (补偿 + 基础镜 + 扩容) | Reddot + Mag，Bizon (Reddot)，Vector (Komp + Reddot + Mag)
-			{ "Tommy Gun", 1 }, -- 扩容 | Mag
+			{ "UMP45", 0 }, -- 基础镜 + 扩容，Bizon (基础镜即可)，Vector (补偿 + 基础镜 + 扩容) | Reddot + Mag，Bizon (Reddot)，Vector (Komp + Reddot + Mag)
+			{ "Tommy Gun", 0 }, -- 扩容 | Mag
 		},
 		["9mm"] = {
-			{ "Vector", 1 }, -- 基础镜 + 扩容 | Reddot + Mag
-			{ "Micro UZI", 1 }, -- 扩容 | Mag
+			{ "Vector", 0 }, -- 基础镜 + 扩容 | Reddot + Mag
+			{ "Micro UZI", 0 }, -- 扩容 | Mag
 		},
 		["5.56"] = {
 			{ "M416", 1 }, -- 补偿 + 基础镜 + 直角 + 枪托 + 扩容 | Komp + Reddot + Triangular grip + Gunstock + Mag
@@ -90,12 +90,12 @@ userInfo = {
 		["G11"] = "next",
 		-- lalt + G
 		["lalt + G3"] = "",
-		["lalt + G4"] = "",
-		["lalt + G5"] = "",
-		["lalt + G6"] = "scopeX1",
+		["lalt + G4"] = "scopeX2",
+		["lalt + G5"] = "scopeX1",
+		["lalt + G6"] = "",
 		["lalt + G7"] = "scopeX3",
 		["lalt + G8"] = "scopeX4",
-		["lalt + G9"] = "scopeX2",
+		["lalt + G9"] = "",
 		["lalt + G10"] = "",
 		["lalt + G11"] = "scopeX6",
 		-- lctrl + G
@@ -120,8 +120,8 @@ userInfo = {
 		["lshift + G11"] = "",
 		-- ralt + G
 		["ralt + G3"] = "",
-		["ralt + G4"] = "",
-		["ralt + G5"] = "",
+		["ralt + G4"] = "5.56",
+		["ralt + G5"] = "7.62",
 		["ralt + G6"] = "",
 		["ralt + G7"] = "",
 		["ralt + G8"] = "",
@@ -130,8 +130,8 @@ userInfo = {
 		["ralt + G11"] = "",
 		-- rctrl + G
 		["rctrl + G3"] = "",
-		["rctrl + G4"] = "",
-		["rctrl + G5"] = "",
+		["rctrl + G4"] = "next",
+		["rctrl + G5"] = "last",
 		["rctrl + G6"] = "",
 		["rctrl + G7"] = "",
 		["rctrl + G8"] = "",
@@ -140,7 +140,7 @@ userInfo = {
 		["rctrl + G11"] = "",
 		-- rshift + G
 		["rshift + G3"] = "",
-		["rshift + G4"] = "",
+		["rshift + G4"] = "scopeX3",
 		["rshift + G5"] = "",
 		["rshift + G6"] = "",
 		["rshift + G7"] = "",
