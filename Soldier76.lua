@@ -9,22 +9,22 @@ userInfo = {
 	debug = 1,
 
 	-- CPU 负载等级，建议输入 1 ~ 30 之间的数字，不能小于 1 。值越小，压枪效果越好，值越大，帧数越高。(过分掉帧会直接影响压枪效果，请在保证帧数的情况下减小该值)
-	cpuLoad = 5,
+	cpuLoad = 6,
 
 	-- 灵敏度调整
 	sensitivity = {
 		-- 开镜
-		ADS = 55,
+		ADS = 60,
 		-- 腰射
-		Aim = 1,
+		Aim = 1.7,
 		-- 二倍
-		scopeX2 = 2.7,
+		scopeX2 = 1.9,
 		-- 三倍
-		scopeX3 = 3.0,
+		scopeX3 = 2.9,
 		-- 四倍
-		scopeX4 = 3.9,
+		scopeX4 = 3.7,
 		-- 六倍
-		scopeX6 = 2.3,
+		scopeX6 = 5.2,
 	},
 
 	-- 自动腰射，不使用自动腰射留空，使用则设置为键盘上按键，默认为 tilde -> ~ 键
@@ -53,23 +53,24 @@ userInfo = {
 
 	-- 支持的枪械，排列顺序即是配置顺序，可以自行调整，不需要的枪械请设置为0，需要的设置为1。
 	canUse = {
+		["5.56"] = {
+			{ "M416", 0 }, -- 补偿 + 基础镜 + 直角 + 枪托 + 扩容 | Komp + Reddot + Triangular grip + Gunstock + Mag
+			{ "SCAR-L", 0 }, -- 补偿 + 基础镜 + 直角 + 扩容 | Komp + Reddot + Triangular grip + Mag
+			{ "QBZ", 0 }, -- 补偿 + 基础镜 + 直角 + 扩容 | Komp + Reddot + Triangular grip + Mag
+			{ "G36C", 0 }, -- 补偿 + 基础镜 + 直角 + 扩容 | Komp + Reddot + Triangular grip + Mag
+			{ "M16A4", 1 }, -- 补偿 + 基础镜 + 枪托 + 扩容 | Komp + Reddot + Gunstock + Mag
+			{ "Mini", 0 },
+		},
 		[".45"] = {
-			{ "UMP45", 0 }, -- 基础镜 + 扩容，Bizon (基础镜即可)，Vector (补偿 + 基础镜 + 扩容) | Reddot + Mag，Bizon (Reddot)，Vector (Komp + Reddot + Mag)
-			{ "Tommy Gun", 0 }, -- 扩容 | Mag
+			{ "UMP45", 1 }, -- 基础镜 + 扩容，Bizon (基础镜即可)，Vector (补偿 + 基础镜 + 扩容) | Reddot + Mag，Bizon (Reddot)，Vector (Komp + Reddot + Mag)
+			{ "Tommy Gun", 1 }, -- 扩容 | Mag
 		},
 		["9mm"] = {
-			{ "Vector", 0 }, -- 基础镜 + 扩容 | Reddot + Mag
-			{ "Micro UZI", 0 }, -- 扩容 | Mag
-		},
-		["5.56"] = {
-			{ "M416", 1 }, -- 补偿 + 基础镜 + 直角 + 枪托 + 扩容 | Komp + Reddot + Triangular grip + Gunstock + Mag
-			{ "SCAR-L", 1 }, -- 补偿 + 基础镜 + 直角 + 扩容 | Komp + Reddot + Triangular grip + Mag
-			{ "QBZ", 1 }, -- 补偿 + 基础镜 + 直角 + 扩容 | Komp + Reddot + Triangular grip + Mag
-			{ "G36C", 1 }, -- 补偿 + 基础镜 + 直角 + 扩容 | Komp + Reddot + Triangular grip + Mag
-			{ "M16A4", 1 }, -- 补偿 + 基础镜 + 枪托 + 扩容 | Komp + Reddot + Gunstock + Mag
+			{ "Vector", 1 }, -- 基础镜 + 扩容 | Reddot + Mag
+			{ "Micro UZI", 1 }, -- 扩容 | Mag
 		},
 		["7.62"] = {
-			{ "AKM", 1 }, -- 补偿 + 基础镜 + 扩容 | Komp + Reddot + Mag
+			{ "AKM", 0 }, -- 补偿 + 基础镜 + 扩容 | Komp + Reddot + Mag
 			{ "Beryl M762", 1 }, -- 补偿 + 基础镜 + 直角 + 扩容 | Komp + Reddot + Triangular grip + Mag
 			{ "DP-28", 1 }, -- 基础镜 | Reddot
 		},
@@ -78,11 +79,26 @@ userInfo = {
 	-- G键自定义绑定
 	-- 可绑定指令请参考: https://github.com/kiccer/Soldier76#%E6%8C%87%E4%BB%A4%E5%88%97%E8%A1%A8
 	G_bind = {
+		["lalt + G4"] = "5.56",
+		["lalt + G5"] = "7.62",
+		["G6"] = "fast_pickup",
+		--
+		["ralt + G4"] = "scopeX1",
+		["ralt + G5"] = "scopeX2",
+		["ralt + G6"] = "9mm",
+		--
+		["rctrl + G4"] = "next",
+		["rctrl + G5"] = "last",
+		["rctrl + G6"] = ".45",
+		--
+		["rshift + G4"] = "scopeX3",
+		["rshift + G5"] = "scopeX4",
+		["rshift + G6"] = "scopeX6",
 		-- G
 		["G3"] = "",
 		["G4"] = "",
 		["G5"] = "",
-		["G6"] = "5.56",
+		["G6"] = "",
 		["G7"] = "9mm",
 		["G8"] = "7.62",
 		["G9"] = ".45",
@@ -90,9 +106,6 @@ userInfo = {
 		["G11"] = "next",
 		-- lalt + G
 		["lalt + G3"] = "",
-		["lalt + G4"] = "scopeX2",
-		["lalt + G5"] = "scopeX1",
-		["lalt + G6"] = "",
 		["lalt + G7"] = "scopeX3",
 		["lalt + G8"] = "scopeX4",
 		["lalt + G9"] = "",
@@ -112,7 +125,6 @@ userInfo = {
 		["lshift + G3"] = "",
 		["lshift + G4"] = "",
 		["lshift + G5"] = "",
-		["lshift + G6"] = "fast_pickup",
 		["lshift + G7"] = "",
 		["lshift + G8"] = "",
 		["lshift + G9"] = "",
@@ -120,9 +132,6 @@ userInfo = {
 		["lshift + G11"] = "",
 		-- ralt + G
 		["ralt + G3"] = "",
-		["ralt + G4"] = "5.56",
-		["ralt + G5"] = "7.62",
-		["ralt + G6"] = "",
 		["ralt + G7"] = "",
 		["ralt + G8"] = "",
 		["ralt + G9"] = "",
@@ -130,9 +139,6 @@ userInfo = {
 		["ralt + G11"] = "",
 		-- rctrl + G
 		["rctrl + G3"] = "",
-		["rctrl + G4"] = "next",
-		["rctrl + G5"] = "last",
-		["rctrl + G6"] = "",
 		["rctrl + G7"] = "",
 		["rctrl + G8"] = "",
 		["rctrl + G9"] = "",
@@ -140,9 +146,6 @@ userInfo = {
 		["rctrl + G11"] = "",
 		-- rshift + G
 		["rshift + G3"] = "",
-		["rshift + G4"] = "scopeX3",
-		["rshift + G5"] = "",
-		["rshift + G6"] = "",
 		["rshift + G7"] = "",
 		["rshift + G8"] = "",
 		["rshift + G9"] = "",
@@ -154,7 +157,7 @@ userInfo = {
 		["F3"] = "",
 		["F4"] = "",
 		["F5"] = "",
-		["F6"] = "",
+		["F6"] = "9mm",
 		["F7"] = "",
 		["F8"] = "",
 		["F9"] = "",
@@ -221,7 +224,7 @@ pubg = {
 	scopeX6 = userInfo.sensitivity.scopeX6, -- 六倍压枪倍率
 	scope_current = "scopeX1", -- 当前使用倍镜
 	generalSensitivityRatio = userInfo.sensitivity.ADS / 100, -- 按比例调整灵敏度
-	isEffective = "2020-01-01 00:00:00", -- 有效期
+	isEffective = "2099-01-01 00:00:00", -- 有效期
 	isStart = false, -- 是否是启动状态
 	G1 = false, -- G1键状态
 	currentTime = 0, -- 此刻
@@ -289,6 +292,28 @@ pubg["M16A4"] = function ()
 			{20, 119},
 			{35, 121},
 			{40, 127},
+		}
+	})
+
+end
+
+pubg["Mini"] = function ()
+
+	return pubg.execOptions({
+		ratio = 1,
+		interval = 93,
+		autoContinuousFiring = 1,
+		ballistic = {
+			{1, 0},
+			{2, 132},
+			{3, 98},
+			{4, 100},
+			{5, 109},
+			{6, 150},
+			{12, 165},
+			{13, 166},
+			{15, 173},
+			{30, 180},
 		}
 	})
 
@@ -383,10 +408,10 @@ pubg["Vector"] = function ()
 		autoContinuousFiring = 1,
 		ballistic = {
 			{1, 0},
-			{5, 52},
-			{10, 72},
-			{15, 89},
-			{33, 119},
+			{5, 50},
+			{10, 70},
+			{15, 85},
+			{33, 110},
 		}
 	})
 
@@ -571,7 +596,7 @@ end
 function pubg.init ()
 
 	-- Clean up the firearms Depot
-	local forList = { ".45", "9mm", "5.56", "7.62" }
+	local forList = { "5.56", ".45", "9mm", "7.62" }
 
 	for i = 1, #forList do
 
